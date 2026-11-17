@@ -1,0 +1,45 @@
+{
+  "members": [
+    {
+      "kind": "trees",
+      "dead": "models/trees_dead.joblib",
+      "team": "models/trees_team_e2.joblib"
+    },
+    {
+      "kind": "trees",
+      "dead": "models/trees_dead.joblib",
+      "team": "models/trees_team_e1.joblib"
+    },
+    {
+      "kind": "temporal",
+      "network": "models/temporal_e2.npz"
+    },
+    {
+      "kind": "temporal",
+      "network": "models/temporal_e1.npz"
+    }
+  ],
+  "model_sha256": {
+    "models/trees_dead.joblib": "efef4eddceb253d59ef4e66b0652b89a55b6ca58e5c0fa4785d481fab397d653",
+    "models/trees_team_e2.joblib": "b9b5bd44959b1fac6e7a66da4ede785d7ef9ab91c4e979f2130b48827f961f2d",
+    "models/trees_team_e1.joblib": "5b00e510dde9fd0329690b4f38f599216739e1a7549bdaa178551a3e4dbe7256",
+    "models/temporal_e2.npz": "c27a914e94535fb71e94c18c44e2d8d9ebc9f3bfd6d99ac88240ad883dfc5ba1",
+    "models/temporal_e1.npz": "24fb7eb965cfae70da277f8d4af8bfb1ffce5fab02ba04d124d70b4e6576eaae"
+  },
+  "decoder": {
+    "switch_penalty": 16.0,
+    "stop_penalty": 8.0,
+    "restart_penalty": 16.0,
+    "min_possession_frames": 12,
+    "min_dead_frames": 50,
+    "dead_bias": 0.0,
+    "emission_weight": 1.0,
+    "boundary_weight": 0.0
+  },
+  "dead_until_kickoff": true,
+  "training": {
+    "data": "IDSSE, 7 matches, 5 degraded variants each plus one randomized copy of each variant",
+    "labels": "members trained on E2 and on E1",
+    "decoder_selection": "nested leave-one-match-out on E2, maximum mean spellF1"
+  }
+}
